@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Car Registration Fee Calculator Widget</title>
+<meta name="description" content="A free, embeddable car registration cost widget. Drop it into any site to show what a car costs to register in all 50 states and DC. Powered by State Fee Calculator.">
+<link rel="canonical" href="https://statefeecalculator.com/">
+<style>
+  :root{
+    color-scheme:light dark;
+    --ink:#101418;--ink2:#4a5560;--ink3:#77838f;--line:#e4e7ec;--surface:#fff;--bg:#f6f7fb;
+    --brand:#2f4fd8;--brand-deep:#1b2f9e;--brand-soft:#eef1fe;--brand-line:#c9d3fb;--good:#047857;
+    --r:16px;
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --ink:#e9ecf1;--ink2:#a4afbb;--ink3:#7d8894;--line:#262b33;--surface:#14171d;--bg:#0e1116;
+    --brand:#7d95f5;--brand-deep:#5a75ef;--brand-soft:#171c33;--brand-line:#2c3763;--good:#34d399;
+  }}
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font:400 16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+  .wrap{max-width:820px;margin:0 auto;padding:0 20px}
+  header{text-align:center;padding:56px 20px 20px}
+  .kicker{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--brand);background:var(--brand-soft);border:1px solid var(--brand-line);border-radius:999px;padding:5px 13px;margin-bottom:16px}
+  h1{font-size:34px;line-height:1.15;font-weight:800;letter-spacing:-.02em;margin:0 0 12px}
+  .lede{font-size:18px;color:var(--ink2);max-width:620px;margin:0 auto}
+  section{margin:36px 0}
+  h2{font-size:22px;font-weight:750;letter-spacing:-.01em;margin:0 0 12px}
+  p{color:var(--ink2)}
+  a{color:var(--brand);font-weight:600;text-decoration:none}
+  a:hover{text-decoration:underline}
+  .demo{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:0 1px 2px rgba(16,20,24,.04)}
+  iframe{width:100%;height:230px;border:0;border-radius:12px;display:block}
+  .snippet{position:relative;background:#0e1116;color:#e9ecf1;border-radius:12px;padding:16px 16px 14px;font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow-x:auto}
+  .snippet code{white-space:pre}
+  .copy{position:absolute;top:10px;right:10px;background:var(--brand);color:#fff;border:0;border-radius:8px;padding:6px 12px;font:600 12px/1 inherit;cursor:pointer}
+  .copy:hover{background:var(--brand-deep)}
+  ul.feat{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  ul.feat li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:15px;color:var(--ink2)}
+  ul.feat b{color:var(--ink);display:block;margin-bottom:2px}
+  .states{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .states a{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:14px;font-weight:600}
+  .states a:hover{border-color:var(--brand);text-decoration:none}
+  .cta{display:inline-block;background:var(--brand);color:#fff;font-weight:700;border-radius:12px;padding:13px 22px;font-size:16px;margin-top:6px}
+  .cta:hover{background:var(--brand-deep);text-decoration:none}
+  footer{text-align:center;color:var(--ink3);font-size:14px;padding:36px 20px 48px;border-top:1px solid var(--line);margin-top:40px}
+  footer a{color:var(--ink3)}
+  @media (max-width:560px){h1{font-size:27px}ul.feat{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <span class="kicker">Free embeddable tool</span>
+  <h1>Car Registration Fee Calculator Widget</h1>
+  <p class="lede">A free, self-contained widget that shows what a car costs to register in any US state. Drop it into your own site with one line of HTML.</p>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <h2>Live preview</h2>
+    <div class="demo">
+      <iframe src="https://statefeecalculator.com/embed/registration-cost/" title="Car registration cost by state" loading="lazy"></iframe>
+    </div>
+    <p style="margin-top:12px">Pick a state and it shows the first-year registration cost and the yearly renewal. Full state-by-state breakdowns, with the source behind every fee, live on <a href="https://statefeecalculator.com/" rel="noopener">State Fee Calculator</a>.</p>
+  </section>
+
+  <section>
+    <h2>Add it to your site</h2>
+    <p>Paste this where you want the widget to appear. It is responsive and needs no scripts of your own.</p>
+    <div class="snippet">
+      <button class="copy" id="copyBtn" type="button">Copy</button>
+<code id="code">&lt;iframe
+  src="https://statefeecalculator.com/embed/registration-cost/"
+  title="Car registration cost by state"
+  width="100%" height="230" style="border:0;max-width:520px"
+  loading="lazy"&gt;&lt;/iframe&gt;</code>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why use it</h2>
+    <ul class="feat">
+      <li><b>All 50 states + DC</b>Every US jurisdiction, kept current with published DMV and tax schedules.</li>
+      <li><b>Real numbers</b>First-year cost and yearly renewal, not a vague range.</li>
+      <li><b>Loads fast</b>Lightweight, no cookies, no tracking, no account.</li>
+      <li><b>Free to embed</b>Use it on blogs, dealer sites, moving guides, or budgeting tools.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Popular state calculators</h2>
+    <p>Prefer a full breakdown? Open a state page on State Fee Calculator:</p>
+    <div class="states">
+      <a href="https://statefeecalculator.com/vehicle-registration/california/" rel="noopener">California</a>
+      <a href="https://statefeecalculator.com/vehicle-registration/texas/" rel="noopener">Texas</a>
+      <a href="https://statefeecalculator.com/vehicle-registration/florida/" rel="noopener">Florida</a>
+      <a href="https://statefeecalculator.com/vehicle-registration/new-york/" rel="noopener">New York</a>
+      <a href="https://statefeecalculator.com/vehicle-registration/illinois/" rel="noopener">Illinois</a>
+      <a href="https://statefeecalculator.com/vehicle-registration/" rel="noopener">All states</a>
+    </div>
+    <p style="margin-top:22px"><a class="cta" href="https://statefeecalculator.com/" rel="noopener">Open the full calculator</a></p>
+  </section>
+
+</div>
+
+<footer>
+  Widget and data by <a href="https://statefeecalculator.com/" rel="noopener">State Fee Calculator</a>. Estimates for planning only; local county fees may apply.
+</footer>
+
+<script>
+  document.getElementById('copyBtn').addEventListener('click', function () {
+    var t = document.getElementById('code').textContent;
+    navigator.clipboard.writeText(t).then(function () {
+      var b = document.getElementById('copyBtn');
+      b.textContent = 'Copied';
+      setTimeout(function () { b.textContent = 'Copy'; }, 1600);
+    });
+  });
+</script>
+</body>
+</html>
